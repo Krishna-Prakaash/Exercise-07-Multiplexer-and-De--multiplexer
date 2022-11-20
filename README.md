@@ -1,8 +1,11 @@
 # Exercise-07-Multiplexer-and-De-multiplexer
-### AIM: To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
-### THEORY 
+# AIM:
+To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
+# HARDWARE REQUIRED:
+– PC, Cyclone II , USB flasher
+# SOFTWARE REQUIRED:
+Quartus prime
+# THEORY 
 
 ## What are Multiplexer and Demultiplexer?
 In-network transmission, both the multiplexer and demultiplexer are combinational circuits. A multiplexer selects an input from several inputs then it is transmitted in the form of a single line. An alternative name of the multiplexer is MUX or data selector. A demultiplexer uses one input signal and generates many. So it is known as Demux or data distributor.
@@ -46,43 +49,90 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 
  
  
-### Procedure
-/* write all the steps invloved */
+# Procedure:
+## Step 1:
+Module Declaration. module is a keywords defined in Verilog .
+
+## Step 2:
+Input-Output Delecaration.
+
+Multiplexer has four inputs (I0,I1,I2,I3) and two select lines(S0,S1).
+
+Demultiplexer has single input(I) and two select lines(S0,S1).
+
+## Step 3:
+In multiplexer ,we use both AND logic and OR logic inorder to obtain the result.
+
+In demultiplexer , only AND gates are being used.
+
+## Step 4:
+Ending module. endmodule is a keywords defined in Verilog.
 
 
 
-### PROGRAM 
-/*
+# PROGRAM :
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: KRISHNA PRAKAASH D M
+RegisterNumber: 212221230052
+```
+## Multiplexer:
+```
+module muxf(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire P,Q,R,S,S0C,S1C;
+not (S0C,S0);
+not (S1C,S1);
+and (P,S0C,S1C,I0);
+and (Q,S0C,S1,I1);
+and (R,S0,S1C,I2);
+and (S,S0,S1,I3);
+or (Y,P,Q,R,S);
+endmodule 
+
+```
+Demultiplexer:
+```
+module dmuxf(Y0,Y1,Y2,Y3,S0,S1,I);
+input S0,S1,I;
+output Y0,Y1,Y2,Y3;
+wire S0C,S1C;
+not (S0C,S0);
+not (S1C,S1);
+and (Y0,S0C,S1C,I);
+and (Y1,S0C,S1,I);
+and (Y2,S0,S1C,I);
+and (Y3,S0,S1,I);
+endmodule 
+```
+
+# RTL LOGIC
+## Multiplexer:
+![OUTPUT-1](IMG-01.PNG)
+
+## Demultiplexer:
+![OUTPUT-2](IMG-02.PNG)
+
+## TIMING DIGRAMS  :
+### Multiplexer:
+![OUTPUT-3](IMG-03.PNG)
+![OUTPUT-4](IMG-04.PNG)
+![OUTPUT-5](IMG-05.PNG)
+![OUTPUT-6](IMG-06.PNG)
+
+### Demultiplexer:
+![OUTPUT-7](IMG-07.PNG)
+![OUTPUT-8](IMG-08.PNG)
+![OUTPUT-9](IMG-09.PNG)
+![OUTPUT-10](IMG-10.PNG)
 
 
+## TRUTH TABLE 
+![OUTPUT-11](IMG-11.PNG)
 
 
+# RESULT:
+Implementation of 4 X1 multiplexer and 1X4 de multiplexer using verilog Program is done successfully.
 
 
-### RTL LOGIC  
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
