@@ -130,6 +130,7 @@ endmodule
 
 ## TRUTH TABLE 
 ![OUTPUT-11](IMG-11.PNG)
+![OUTPUT-12](IMG-12.PNG)
 
 
 # RESULT:
